@@ -121,12 +121,25 @@
 
         function отправитьПисьмо(event) {
             event.preventDefault()
-            alert("Письмо отправлено (или нет)")
-
             let name = document.querySelector("#name").value;
             let subject = document.querySelector("#subject").value;
             let message = document.querySelector("#message").value;
             let email = document.querySelector("#email").value;
+            axios.get('http://vdubov.simtechdev.us/emailsend/public/send-mail', {
+            params: {
+                name: name,
+                subject: subject,
+                message: message,
+                email: email
+            }
+            })
+            .then(function (response) {
+                if (response.data.errors) {
+                    alert("Ничего хорошего")
+                } else {
+                    alert("Всё хорошо")
+                }
+            })
         }
 
     </script>
