@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реактивы сайта</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body>
+
+    <div style="width: 10rem; margin: auto;">
+
+        <div x-data="{ counter: 0, text:' ', enable: false }" style="text-align: center";>
+
+            <button x-on:click="counter++">Тык+</button>
+            <button x-on:click="counter--">Тык-</button>
+            <span x-html="counter"></span>
+
+            <input type="text" x-model="text">
+            <span x-html="text"></span>
+
+            <div>
+
+                <span x-show="enable">888</span>
+                <span x-show="!enable">999</span>
+                <button x-on:click="enable = !enable">Тык</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+<!-- <div style="width: 10rem; margin: auto;">
+
+    <div style="text-align: center;">
+
+        <button id="button1">Тык</button>
+        <span id="counter1">0</span>
+
+    </div>
+
+</div> -->
+</html>
